@@ -6,7 +6,7 @@ import os
 
 st.title("Lung Cancer Detection Application: ")
 #we create an upload folder to save images that the user uploads.
-upload_folder = '/Users/shrikarstuff/Documents/MyOwnProjects/LungCancerML/uploads'
+upload_folder = 'uploads'
 uploaded_file = st.file_uploader("Choose an image file: ", type = ['jpeg', 'png', 'jpg'])
 
 #this function takes the uploaded image and finds the file path of it.
@@ -23,7 +23,7 @@ if uploaded_file is not None:
     #bytes of file equals t he number of bytes the uploaded file is.
     st.write("Uploaded Image: ")
     st.image(uploaded_file)
-    model =  YOLO("/Users/shrikarstuff/Documents/MyOwnProjects/LungCancerML/runs/classify/train3/weights/last.pt")
+    model =  YOLO("runs/classify/train3/weights/last.pt")
     #once model analyzes image, results are stored in results variable. We need to get the filepath of this image first before uploading.
     #getting the filepath of an image: 
     results = model(get_filepath(uploaded_file))
