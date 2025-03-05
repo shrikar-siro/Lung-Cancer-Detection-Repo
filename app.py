@@ -23,7 +23,7 @@ if uploaded_file is not None:
     #bytes of file equals t he number of bytes the uploaded file is.
     st.write("Uploaded Image: ")
     st.image(uploaded_file)
-    model =  YOLO("runs/classify/train3/weights/last.pt")
+    model =  YOLO("last.pt")
     #once model analyzes image, results are stored in results variable. We need to get the filepath of this image first before uploading.
     #getting the filepath of an image: 
     results = model(get_filepath(uploaded_file))
