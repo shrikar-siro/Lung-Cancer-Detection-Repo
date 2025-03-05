@@ -35,7 +35,7 @@ if uploaded_file is not None:
     category = names[np.argmax(probList)]
     if not(category == 'normal'):
         #we display the category to the user, adding color to the category name for easier identification.
-        st.write(f"The category of lung cancer shown in the image is: :blue[**{category}**], with a probability of :red[**{probList[0] * 100:.2f}**]%.")
+        st.write(f"The category of lung cancer shown in the image is: :blue[**{category}**], with a probability of :red[**{np.max(probList) * 100:.2f}**]%.")
     else:
         st.write(f"The category is normal, meaning that this patient has no lung cancer.")
 
