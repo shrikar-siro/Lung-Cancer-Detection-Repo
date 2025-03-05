@@ -21,7 +21,7 @@ def get_filepath(uploaded_file):
     
 if uploaded_file is not None: 
     #bytes of file equals t he number of bytes the uploaded file is.
-    st.write("Uploaded Image: ")
+    st.header("Uploaded Image: ")
     st.image(uploaded_file)
     model =  YOLO("last.pt")
     #once model analyzes image, results are stored in results variable. We need to get the filepath of this image first before uploading.
@@ -33,6 +33,7 @@ if uploaded_file is not None:
     probList = results[0].probs.data.tolist()
     #we find the index of maximum probability using argmax function and then get the correct classification name based on the index.
     category = names[np.argmax(probList)]
+    st.header("Conclusion: ")
     if not(category == 'normal'):
         #we display the category to the user, adding color to the category name for easier identification.
         st.write(f"The category of lung cancer shown in the image is: :blue[**{category}**], with a probability of :red[**{np.max(probList) * 100:.2f}**]%.")
